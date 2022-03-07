@@ -45,6 +45,7 @@
      <Compile Include="Assets\Scripts\Weapons\PlayerWeapon.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\PlayerManager.cs" />
+     <Compile Include="Assets\Scripts\Character\EnemyHealth.cs" />
      <None Include="Assets\Art\Double-barrel gun\Stand\Standard_Two_Sided .shader" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.26f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

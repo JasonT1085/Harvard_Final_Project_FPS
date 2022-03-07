@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{ee1fcee1-be67-3365-73aa-cc578be80dcd}</ProjectGuid>
+    <ProjectGuid>{2247a012-86fb-a53b-2bb8-2c3eb8c6ed3c}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -37,10 +37,14 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\scr_Models.cs" />
+     <Compile Include="Assets\Scripts\Weapons\scr_WeaponController.cs" />
      <Compile Include="Assets\Scripts\Character\scr_CharacterController.cs" />
      <Compile Include="Assets\Inputs\DefaultInput.cs" />
-     <Compile Include="Assets\Scripts\Weapons\scr_WeaponController.cs" />
      <Compile Include="Assets\Art\MobilityArts\SciFiHandGun\Scripts\OrbitAroundTarget.cs" />
+     <Compile Include="Assets\Scripts\Character\PlayerShoot.cs" />
+     <Compile Include="Assets\Scripts\Weapons\PlayerWeapon.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\PlayerManager.cs" />
      <None Include="Assets\Art\Double-barrel gun\Stand\Standard_Two_Sided .shader" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.26f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
@@ -265,7 +269,7 @@
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.26f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-        <HintPath>C:\Users\Naikan\My project (1)\Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
+        <HintPath>N:\Harvard FPS Project\Harvard_Final_Project_FPS\Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.26f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>
@@ -613,49 +617,37 @@
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.26f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-        <HintPath>C:\Users\Naikan\My project (1)\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
-        <HintPath>C:\Users\Naikan\My project (1)\Library\ScriptAssemblies\Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+        <HintPath>N:\Harvard FPS Project\Harvard_Final_Project_FPS\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-        <HintPath>C:\Users\Naikan\My project (1)\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+        <HintPath>N:\Harvard FPS Project\Harvard_Final_Project_FPS\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
-        <HintPath>C:\Users\Naikan\My project (1)\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.AddOns.Editor">
-        <HintPath>C:\Users\Naikan\My project (1)\Library\ScriptAssemblies\Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+        <HintPath>N:\Harvard FPS Project\Harvard_Final_Project_FPS\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-        <HintPath>C:\Users\Naikan\My project (1)\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+        <HintPath>N:\Harvard FPS Project\Harvard_Final_Project_FPS\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-        <HintPath>C:\Users\Naikan\My project (1)\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+        <HintPath>N:\Harvard FPS Project\Harvard_Final_Project_FPS\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-        <HintPath>C:\Users\Naikan\My project (1)\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder">
-        <HintPath>C:\Users\Naikan\My project (1)\Library\ScriptAssemblies\Unity.ProBuilder.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.Editor">
-        <HintPath>C:\Users\Naikan\My project (1)\Library\ScriptAssemblies\Unity.ProBuilder.Editor.dll</HintPath>
+        <HintPath>N:\Harvard FPS Project\Harvard_Final_Project_FPS\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-        <HintPath>C:\Users\Naikan\My project (1)\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+        <HintPath>N:\Harvard FPS Project\Harvard_Final_Project_FPS\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InputSystem">
-        <HintPath>C:\Users\Naikan\My project (1)\Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
+        <HintPath>N:\Harvard FPS Project\Harvard_Final_Project_FPS\Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-        <HintPath>C:\Users\Naikan\My project (1)\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+        <HintPath>N:\Harvard FPS Project\Harvard_Final_Project_FPS\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-        <HintPath>C:\Users\Naikan\My project (1)\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+        <HintPath>N:\Harvard FPS Project\Harvard_Final_Project_FPS\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
-        <HintPath>C:\Users\Naikan\My project (1)\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+        <HintPath>N:\Harvard FPS Project\Harvard_Final_Project_FPS\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

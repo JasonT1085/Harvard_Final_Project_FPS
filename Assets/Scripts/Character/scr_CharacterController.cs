@@ -174,7 +174,7 @@ public class scr_CharacterController : MonoBehaviour
         var verticalSpeed = playerSettings.WalkingFowardSpeed;
         var horizontalSpeed = playerSettings.WalkingStrafeSpeed;
 
-        if(isSprinting)
+        if(isSprinting && !isAiming)
         {
             verticalSpeed = playerSettings.RunningForwardSpeed;
             horizontalSpeed = playerSettings.RunningStrafeSpeed;

@@ -16,6 +16,11 @@ public class PlayerShoot : MonoBehaviour
     public int currentAmmo;
     private LayerMask mask;
 
+    //Weapon Effects
+    //Muzzleflash
+    public ParticleSystem muzzleflash;
+
+
     //Rate of Fire
     [SerializeField]
     private float rateOfFire;
@@ -26,10 +31,7 @@ public class PlayerShoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        defaultInput = new DefaultInput();
-        if (currentAmmo > 0) { defaultInput.Weapon.Fire1Pressed.performed += e => Shoot(); } 
-        defaultInput.Weapon.Fire1Released.performed += e => ShootRelease();        
-        defaultInput.Enable();
+        muzzleflash.Stop();
         if (cam == null)
         {
             Debug.LogError("No Camera Referenced");
@@ -42,6 +44,10 @@ public class PlayerShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {    
+        if(Input.GetButton("Fire1") && currentAmmo > 0)
+        {
+            Shoot();
+        }
     }
 
     void Shoot()
@@ -53,6 +59,8 @@ public class PlayerShoot : MonoBehaviour
             nextFire = Time.time + rateOfFire;
 
             currentAmmo--;
+
+            StartCoroutine(WeaponEffects());
 
             if (Physics.Raycast(cam.transform.position, cam.transform.forward, out _hit, weapon.range))
             {
@@ -71,7 +79,15 @@ public class PlayerShoot : MonoBehaviour
             }            
         }
 
-    }   
+    }
+
+    IEnumerator WeaponEffects()
+    {
+        muzzleflash.Play();
+        yield return new WaitForEndOfFrame();
+        muzzleflash.Stop();
+    }
+
     void ShootRelease()
     {
 
